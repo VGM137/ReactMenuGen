@@ -86,6 +86,32 @@ const CreateImage = (props) => {
         margin: auto;
         align-items: center;
         justify-content: center;
+      }
+      .quitar{
+        position: absolute;
+        background-color: rgba(0,0,0,0);
+        border: none;
+        color: rgba(0,0,0,0);
+        right: 50px;
+        height: 20px;
+        width: 20px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+      .quitar:hover{
+        background-color: rgba(146, 146, 146, 0.5);
+        color: rgb(175, 175, 175);
+        border: solid 1px white;
+      }
+      .opcion{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 15px 0 0 0;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1em;
       }`, 
       google_fonts: 'Finger Paint'
     };
@@ -104,7 +130,7 @@ const CreateImage = (props) => {
     try {
       const response = await axios.post('https://hcti.io/v1/image', JSON.stringify(payload), headers );
       console.log(response)
-      link.innerHTML = `<a id="linkGo" class="linkGo" href=${response.data.url}>Guardar</a>`;
+      link.innerHTML = `<a id="linkGo" target='_blank' class="linkGo" href=${response.data.url}>Guardar</a>`;
     } catch (error) {
       console.log(error);
     }

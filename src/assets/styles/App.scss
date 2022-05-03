@@ -11,8 +11,15 @@ body{
 }
 .principal{
   width: 100vw;
-  margin: 0 auto;
+  margin: 20px auto;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 720px;
+  grid-template-rows: auto
+}
+
+@media screen and (max-width: 768px) {
+  .principal{
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+  }
 }
