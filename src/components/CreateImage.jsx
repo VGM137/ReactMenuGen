@@ -6,6 +6,8 @@ import '../assets/styles/components/EnterGuisado.scss'
 
 const CreateImage = (props) => {
 
+  let styles = props.styles
+
   const createImage = async () => {
     const payload = { 
       html: document.getElementById('menu').outerHTML,
@@ -18,8 +20,7 @@ const CreateImage = (props) => {
         width: 400px;
         height: 400px;
         margin: auto;
-        background: rgb(60,60,60);
-        background: radial-gradient(circle, rgba(60,60,60,1) 0%, rgba(0,0,0,1) 100%);
+        background: ${styles.backgroundType == 'gradient' ? `radial-gradient(circle, ${styles.gradientColor} 0%, ${styles.backgroundColor} 100%)` : `${styles.backgroundColor}` };
         display: flex;
         position: relative;
         box-shadow: 0px 0px 16px 0px #333333;
@@ -35,11 +36,11 @@ const CreateImage = (props) => {
         margin: 0 auto;
       }
       .encabezado{
-        color: white;
+        color: ${styles.textColor};
         display: flex;
         margin: auto;
         text-align: center;
-        background-image: linear-gradient(to right, white 50%, rgba(255,255,255,0) 0%);
+        background-image: linear-gradient(to right, ${styles.textColor} 50%, rgba(255,255,255,0) 0%);
         background-position: bottom;
         background-size: 10px 2px;
         background-repeat: repeat-x;
@@ -65,18 +66,18 @@ const CreateImage = (props) => {
       }
       .guisados{
         width: auto;
-        color: white;
+        color: ${styles.textColor};
         text-align: center;
         box-sizing: border-box;
         padding: 10px 0 25px 0;
       }
       
       .pie{
-        background-image: linear-gradient(90deg,#fff 50%,hsla(0,0%,100%,0) 0);
+        background-image: linear-gradient(90deg, ${styles.textColor} 50%,hsla(0,0%,100%,0) 0);
         background-position: top;
         background-repeat: repeat-x;
         background-size: 10px 2px;
-        color: #fff;
+        color: ${styles.textColor};
         padding: 10px 0;
       }
       .pie-mensaje{
@@ -130,7 +131,7 @@ const CreateImage = (props) => {
     try {
       const response = await axios.post('https://hcti.io/v1/image', JSON.stringify(payload), headers );
       console.log(response)
-      link.innerHTML = `<a id="linkGo" target='_blank' class="linkGo" href=${response.data.url}>Guardar</a>`;
+      link.innerHTML = `<a id="linkGo" target='_blank' class="linkGo" href=${response.data.url}>Abrir imagen</a>`;
     } catch (error) {
       console.log(error);
     }
@@ -138,7 +139,7 @@ const CreateImage = (props) => {
 
   return(
     <div id="downloadBtn" className="downloadBtn">
-        <button id="download" className="download btn" onClick={createImage}>Generar imagen</button>
+        <button id="download" className="download btn" onClick={createImage}>Crear imagen</button>
     </div>
   )
 }
@@ -146,6 +147,7 @@ const CreateImage = (props) => {
 const mapStateToProps = (state) => {
   return {
     optionText: state.optionText,
+    styles: state.styles
   }
 }
 
