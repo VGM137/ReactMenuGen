@@ -2,6 +2,7 @@
   min-width: 100px;
   max-width: 200px;
   margin: auto;
+  font-size: 1em;
 }
 
 .downloadBtn{
@@ -19,6 +20,8 @@
 .link{
 /*   border: solid 1px white; */
   height: auto;
+  display: flex;
+  margin: auto;
 }
 
 .linkGo{
@@ -28,4 +31,21 @@
   justify-content: center;
   font-size: .5em;
   line-break: anywhere;
+  text-decoration: none;
+}
+
+.edit-styles{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 20px auto 0;
+}
+
+@media screen and (max-width: 768px){
+  .entradas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    max-width: 90vw;
+  }
 }

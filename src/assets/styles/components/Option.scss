@@ -24,3 +24,9 @@
   text-align: center;
   line-height: 1em;
 }
+
+@media screen and (max-width: 425px) {
+  .opcion { 
+    line-height: 0.8em; 
+  }
+}

@@ -33,7 +33,7 @@ const EnterGuisado = (props) => {
   }
 
   return(
-    <div>
+    <div className="container__wrapper">
       <div id="enter-container" className="enter-container">
         <input
           id="guisado"

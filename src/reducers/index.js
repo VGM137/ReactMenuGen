@@ -20,11 +20,33 @@ const reducer = (state, action) => {
       }
 
     case "REMOVE_OPTION":
-/*       const array = state.options;
-      const deleted = array. */
       return{
         ...state,
         options: [...state.options.filter((option) => option != action.payload)]
+      }
+
+    case "CHANGE_BG_COLOR":
+      return{
+        ...state,
+        styles: {...state.styles, backgroundColor: action.payload}
+      }
+
+    case "CHANGE_GR_COLOR":
+      return{
+        ...state,
+        styles: {...state.styles, gradientColor: action.payload}
+      }
+
+    case "CHANGE_TX_COLOR":
+      return{
+        ...state,
+        styles: {...state.styles, textColor: action.payload}
+      }
+
+    case "BACKGROUND_TYPE":
+      return{
+        ...state,
+        styles: {...state.styles, backgroundType: action.payload}
       }
 
     default :

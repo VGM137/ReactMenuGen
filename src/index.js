@@ -8,7 +8,13 @@ import App from './routes/App.js';
 const initialState = {
   date: '',
   options: [],
-  optionText: ""
+  optionText: "",
+  styles: {
+    backgroundType: 'gradient',
+    backgroundColor: '#000',
+    gradientColor: '#3c3c3c',
+    textColor: '#ffffff'
+  }
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

@@ -12,7 +12,7 @@ const EnterDate = (props) => {
   }
 
   return (
-    <div>
+    <div className='container__wrapper'>
       <div id="enter-container" className="enter-container">
         <input
           id="date"
